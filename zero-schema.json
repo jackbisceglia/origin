@@ -1,0 +1,174 @@
+{
+  "permissions": {
+    "user": {
+      "row": {
+        "update": {}
+      }
+    }
+  },
+  "schema": {
+    "version": 1,
+    "tables": {
+      "beans": {
+        "tableName": "beans",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "cafeId": {
+            "type": "string",
+            "optional": false
+          },
+          "date": {
+            "type": "number",
+            "optional": false
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "notes": {
+            "type": "string",
+            "optional": false
+          },
+          "origin": {
+            "type": "string",
+            "optional": false
+          },
+          "rating": {
+            "type": "number",
+            "optional": false
+          },
+          "roast": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      },
+      "cafe": {
+        "tableName": "cafe",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "city": {
+            "type": "string",
+            "optional": false
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "lastVisited": {
+            "type": "number",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "rating": {
+            "type": "number",
+            "optional": false
+          },
+          "userId": {
+            "type": "string",
+            "optional": false
+          },
+          "vibe": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {
+          "beans": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "cafeId"
+            ],
+            "destSchema": "beans"
+          },
+          "drinks": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "cafeId"
+            ],
+            "destSchema": "drink"
+          },
+          "user": {
+            "sourceField": [
+              "userId"
+            ],
+            "destField": [
+              "id"
+            ],
+            "destSchema": "user"
+          }
+        }
+      },
+      "drink": {
+        "tableName": "drink",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "cafeId": {
+            "type": "string",
+            "optional": false
+          },
+          "date": {
+            "type": "number",
+            "optional": false
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "notes": {
+            "type": "string",
+            "optional": false
+          },
+          "rating": {
+            "type": "number",
+            "optional": false
+          },
+          "type": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      },
+      "user": {
+        "tableName": "user",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      }
+    }
+  }
+}
